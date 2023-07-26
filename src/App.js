@@ -7,12 +7,6 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          hola
-          hgffhfgfhh
-          terce intento
-          cuarto intento
-          quinto
-          sexto xd
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
