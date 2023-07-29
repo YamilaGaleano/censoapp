@@ -1,8 +1,8 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Login from './componentes/LoginFormulario';
-import Registrarse from './componentes/RegistrarseFormulario';
+import Login from './componentes/Login';
+import Registrarse from './componentes/Registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
