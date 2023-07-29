@@ -1,7 +1,8 @@
 import React from 'react'
 
-const RegistrarseFormulario = () => {
+const Registrarse = () => {
   return (
+    <div className="container-fluid d-flex justify-content-center align-items-center fondo" style={{ minHeight: "100vh" }}>
     <div className="border p-4 rounded-3 text-center login">
     <h1 className="mb-5">Registro</h1>
     <form className="row g-3 align-items-center">
@@ -18,8 +19,8 @@ const RegistrarseFormulario = () => {
       </div>
     </form>
     </div>
-  
+  </div>
   )
 }
 
-export default RegistrarseFormulario
+export default Registrarse
