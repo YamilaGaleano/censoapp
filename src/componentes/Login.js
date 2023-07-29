@@ -54,7 +54,7 @@ const Login = () => {
           <h1>Censoapp</h1>
         </div>
       </div>
-      <div className="border p-4 rounded-3 text-center login">
+      <div className="border p-4 rounded-3 text-center login-registro">
         <h1 className="mb-5">Login</h1>
         <form className="row g-3 align-items-center mb-5">
           <div className="col-12">

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './componentes/Login';
 import Registrarse from './componentes/Registro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
+import './styles/global.css'
 
 function App() {
   return (
