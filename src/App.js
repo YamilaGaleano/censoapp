@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from './componentes/Login';
 import Registrarse from './componentes/Registro';
+import Dashboard from './componentes/Dashboard';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/global.css'
 
@@ -13,6 +14,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/registro" element={<Registrarse />} />
+        <Route path="/dashboard" element={<Dashboard />} />
  
  
     </Routes>
