@@ -2,9 +2,9 @@ import NavBar from "./NavBar"
 
 const Header = () => {
     return (
-        <header class="header">
+        <header className="header">
             <p>CensoApp</p>
-            <a href="#" class="logout-link">Logout</a>
+            <a href="#" className="logout-link">Logout</a>
         </header>
     )
 }

@@ -1,10 +1,10 @@
 const NavBar = () => {
     return (
-        <nav class="nav nav-pills nav-fill ">
-        <a class="nav-link" href="#">Agregar una persona</a>
-        <a class="nav-link" href="#">Listado de personas</a>
-        <a class="nav-link" href="#">Censados totales</a>
-        <a class="nav-link " aria-disabled="true">Análisis</a>
+        <nav className="nav nav-pills nav-fill ">
+        <a className="nav-link" href="#">Agregar una persona</a>
+        <a className="nav-link" href="#">Listado de personas</a>
+        <a className="nav-link" href="#">Censados totales</a>
+        <a className="nav-link " aria-disabled="true">Análisis</a>
       </nav>
     )
 }

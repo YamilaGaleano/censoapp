@@ -8,9 +8,6 @@ const Login = () => {
   // const user = useRef(null);
   // const pass = useRef(null);
   // const [errorUser, setErrorUser] = useState(false)
-  // const user = useRef(null);
-  // const pass = useRef(null);
-  // const [errorUser, setErrorUser] = useState(false)
 
   // const validar = () => {
   //   const usuario = {
