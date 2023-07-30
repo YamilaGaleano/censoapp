@@ -1,3 +1,4 @@
+import ListarPersonas from "./ListarPersonas"
 
 const ListadoPerContenedor = () => {
     return (
