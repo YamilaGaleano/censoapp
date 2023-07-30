@@ -1,34 +1,4 @@
-.header {
-    height: 110px;
-    background-color: #35075e;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    color: wheat;
-}
-  
-.header p {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-}
-  
-.logout-link {
-    font-size: 18px;
-}
-
-.nav{
-    background-color: #35075e;
-    border-top: 2px solid #b1acb6 !important;
-    
-}
-.nav a{
-    color: white;
-}
-
-.nav a:hover{
-    color: rgb(95, 35, 35);
-    background-color: antiquewhite;
-    
+.main{
+    margin-left: 100px ;
+    padding-right: 200px;
 }
