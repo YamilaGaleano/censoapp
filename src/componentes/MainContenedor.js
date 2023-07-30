@@ -1,9 +1,16 @@
-import ArgegarPersona from "./ArgegarPersona"
+import AgregarPerContenedor from "./AgregarPerContenedor"
+import CensadosTotContenedor from "./CensadosTotContenedor"
+import ListadoPerContenedor from "./ListadoPerContenedor"
+import AnalisisContenedor from "./AnalisisContenedor"
 
 const MainContenedor = () => {
   return (
-    <div className="col-12 main">
-        <ArgegarPersona/>
+    <div className=" row main">
+      <AgregarPerContenedor/>
+      <ListadoPerContenedor/>
+      <CensadosTotContenedor/>
+      <AnalisisContenedor/>
+
     </div>
   )
 }

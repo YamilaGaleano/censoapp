@@ -1,12 +1,12 @@
 import React from 'react'
-import ArgegarPersonaForm from './ArgegarPersonaForm'
+import AgregarPersonaForm from './AgregarPersonaForm'
 
 const ArgegarPersona = () => {
     return (
         <div className="divAgregarPersona mt-5">
-            <h1>Agregar persona</h1>
+            <h2>Agregar persona</h2>
             <p>Censista: Yamila Galeano</p>
-            <ArgegarPersonaForm/>
+            <AgregarPersonaForm/>
 
         </div>
     )
