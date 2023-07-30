@@ -1,9 +1,14 @@
-import ListarPersonas from "./ListarPersonas"
+import ListarPersonas from "./ListarPersonasFiltro"
 
 const ListadoPerContenedor = () => {
     return (
-        <div className="col-12" id="listarPerContenedor">
+        <div class="container">
+        <div class="row justify-content-center mt-5">
+          <div class="col-6">
+            <h1 class="text-center">Personas</h1>   
             <ListarPersonas />
+        </div>
+        </div>
         </div>
     )
 }
