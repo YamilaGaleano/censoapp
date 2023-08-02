@@ -1,16 +1,13 @@
-import AgregarPerContenedor from "./AgregarPerContenedor"
-import CensadosTotContenedor from "./CensadosTotContenedor"
-import ListadoPerContenedor from "./ListadoPerContenedor"
-import AnalisisContenedor from "./AnalisisContenedor"
+import PersonasContenedor from "./PersonasContenedor"
+import CensadosAnalisisContenedor from "./CensadosAnalisisContenedor"
 
 const MainContenedor = () => {
   return (
-    <div className=" row main">
-      <AgregarPerContenedor/>
-      <ListadoPerContenedor/>
-      <CensadosTotContenedor/>
-      <AnalisisContenedor/>
-
+    <div className="container-fluid ">
+      <div className="row dashboard">
+        <PersonasContenedor />
+        <CensadosAnalisisContenedor/>
+      </div>
     </div>
   )
 }

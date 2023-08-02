@@ -3,11 +3,10 @@ import AgregarPersonaForm from './AgregarPersonaForm'
 
 const ArgegarPersona = () => {
     return (
-        <div className="divAgregarPersona mt-5">
-            <h2>Agregar persona</h2>
+        <div className="card-body">
+            <h5>Agregar persona</h5>
             <p>Censista: Yamila Galeano</p>
-            <AgregarPersonaForm/>
-
+            <AgregarPersonaForm />
         </div>
     )
 }

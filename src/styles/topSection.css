@@ -1,24 +1,27 @@
 .header {
-    height: 110px;
-    background-color: #35075e;
+    height: 50px;
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    color: wheat;
+    color: #009fff;
 }
   
 .header p {
-    margin: 0;
+    margin-left: 30px;
+    margin-top: 10px;
     font-size: 24px;
     font-weight: bold;
 }
   
 .logout-link {
-    font-size: 18px;
+    font-size: 15px;
+    color: #009fff;
+    text-decoration: none;
 }
 
-.nav{
+/* .nav{
     background-color: #35075e;
     border-top: 2px solid #b1acb6 !important;
     
@@ -31,4 +34,5 @@
     color: rgb(95, 35, 35);
     background-color: antiquewhite;
     
-}
+} */
+

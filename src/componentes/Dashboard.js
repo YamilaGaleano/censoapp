@@ -5,7 +5,6 @@ import NavBar from "./NavBar"
 const Dashboard = () => {
     return (<>
         <Header />
-        <NavBar />
         <MainContenedor/>
     </>
 

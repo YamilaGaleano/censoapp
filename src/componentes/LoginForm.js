@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const user = useRef(null);
   const pass = useRef(null);
   const [errorUser, setErrorUser] = useState(true)
@@ -29,7 +31,7 @@ const LoginForm = () => {
       if (data.codigo == 200) {
         localStorage.setItem("apikey", data.apiKey);
         localStorage.setItem("id", data.id);
-        //ACA CREO QUE REDIRECCIONAR A ALGUN LADO
+        navigate("/Dashboard")
         console.log("Login exitoso");
       } else {
         console.log(data.mensaje);

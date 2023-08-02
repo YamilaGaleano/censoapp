@@ -1,0 +1,87 @@
+.card {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translate(0px, 0px);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translate(0px, -5px);
+}
+.dashboard {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    margin-top: 30px !important;
+
+    .card-body {
+        height: 400px;
+    }
+}
+.card.agregarPersona {
+    background-color: #f8d9ed;
+
+    .btn {
+        width: 50%;
+        background-color: #44558f !important;
+        color: white;
+        border-style: none;
+    }
+
+}
+
+
+.card.listadoPersonas {
+    background-color: #acdaff;
+
+    .card-body {
+        height: 565px;
+    }
+
+}
+
+.censadosTotales {
+    .first {
+        background-color: #c2c8ff;
+    }
+
+    .second {
+        background-color: #7fb1ff;
+    }
+
+    .third {
+        background-color: #f1e2ff;
+    }
+
+    .card-body {
+        height: 120px;
+    }
+
+}
+
+
+.analisis-topSection {
+
+    .card-body {
+        height: 220px;
+    }
+}
+
+.analisis-bottomSection {
+    .first {
+        background-color: #c085f7;
+    }
+
+    .second {
+        background-color: #ffb8ff;
+    }
+
+    .card-body {
+        height: 100px;
+    }
+
+    .mapa {
+        .card-body {
+            height: 300px;
+        }
+    }
+}

@@ -2,7 +2,7 @@ import AgregarPersona from "./AgregarPersona"
 
 const AgregarPerContenedor = () => {
     return (
-        <div className="col-12" id="agregarPerContenedor">
+        <div className="card agregarPersona ">
             <AgregarPersona />
         </div>
     )
