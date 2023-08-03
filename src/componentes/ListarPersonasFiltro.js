@@ -3,7 +3,7 @@ import ListarPersonas from "./ListarPersonas"
 const ListarPersonasFiltro = () => {
   return (
     <div className="form-group">
-    <label for="filtro">Ocupacion:</label>
+    <label htmlFor="filtro">Ocupacion:</label>
     <select className="form-control" id="filtro">
       <option value="opcion1"> 1</option>
       <option value="opcion2"> 2</option>

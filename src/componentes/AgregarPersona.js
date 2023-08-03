@@ -1,7 +1,7 @@
 import React from 'react'
 import AgregarPersonaForm from './AgregarPersonaForm'
 
-const ArgegarPersona = () => {
+const AgregarPersona = () => {
     return (
         <div className="card-body">
             <h5>Agregar persona</h5>
@@ -11,4 +11,4 @@ const ArgegarPersona = () => {
     )
 }
 
-export default ArgegarPersona
+export default AgregarPersona
