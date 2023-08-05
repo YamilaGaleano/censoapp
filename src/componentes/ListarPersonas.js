@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ListarPersonas = () => {
   return (
     <ul className="list-group">

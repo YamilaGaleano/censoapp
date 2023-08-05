@@ -1,12 +1,12 @@
-import Analisis from './AnalisisPersonas'
-import AnalisisTiempoRestante from './AnalisisTiempoRestante'
+import AnalisisGraficosTop from './AnalisisGraficosTop'
+import AnalisisBottomSection from './AnalisisBottomSection'
 
 const AnalisisContenedor = () => {
     return (
         <div className="container analisis">
             <h5 className="text-center mb-4">Análisis</h5>
-            <Analisis />
-            <AnalisisTiempoRestante />
+            <AnalisisGraficosTop />
+            <AnalisisBottomSection />
         </div>
     )
 }

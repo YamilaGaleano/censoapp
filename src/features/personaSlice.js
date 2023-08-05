@@ -9,7 +9,8 @@ export const personaSlice = createSlice({
     initialState,
     reducers: {
         guardarPersonas: (state, action) => {
-            state.personas = action.payload
+            //cambie el state.personas=action.payload
+            state.personas.push(action.payload)
         }
     }
 })

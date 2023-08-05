@@ -1,5 +1,5 @@
 
-const AnalisisPersonas = () => {
+const AnalisisGraficosTop = () => {
   return (
     <div className="d-flex analisis-topSection">
     <div className="card mx-2 flex-fill">
@@ -18,4 +18,4 @@ const AnalisisPersonas = () => {
   )
 }
 
-export default AnalisisPersonas
+export default AnalisisGraficosTop;

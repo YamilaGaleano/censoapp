@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useRef, useState } from "react"
 import LoginContenedor from './LoginContenedor'
 import LogoPrincipal from './LogoPrincipal'
