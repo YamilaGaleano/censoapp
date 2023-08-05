@@ -41,7 +41,7 @@ const RegistroContenedor = () => {
           } else {
             console.log(data.mensaje);
             setErrorRegistro(true);
-            setMsjError(data.mensaje);
+            if(msjError==="")setMsjError(data.mensaje);
           }
         })
     }

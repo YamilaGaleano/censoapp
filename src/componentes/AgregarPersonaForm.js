@@ -5,7 +5,7 @@ import { guardarDepartamentos } from "../features/departamentoSlice";
 import { guardarOcupaciones } from "../features/ocupacionSlice";
 import { guardarPersonas } from "../features/personaSlice";
 
-const AgregarPersonaForm = () => {
+const AgregarPersonaForm = ({validarDatos}) => {
     const navigate = useNavigate();
     const dep = useSelector(state => state.departamentos.departamentos)
     const ocu = useSelector(state => state.ocupaciones.ocupaciones)
@@ -77,20 +77,7 @@ const AgregarPersonaForm = () => {
             fechaNacimiento: selectEdad,
             ocupacion: ocupacionPersonaRef.current.value
         }
-        fetch(`https://censo.develotion.com/personas.php`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'apiKey': localStorage.getItem("apikey"),
-                'iduser': localStorage.getItem("id")
-            },
-            body: JSON.stringify(persona)
-        }).then(r => r.json())
-            .then(data => {
-                (data.codigo == 200) ? dispatch(guardarPersonas(persona)) : console.log(data.mensaje);
-            })
-
-
+       validarDatos(persona);
     }
     const CambioEdad = (e) => {
         setSelectEdad(e.target.value)
