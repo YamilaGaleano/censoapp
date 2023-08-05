@@ -1,7 +1,7 @@
 import LogoPrincipal from "./LogoPrincipal";
 import RegistroContenedor from "./RegistroContenedor";
 
-const Registrarse = () => {
+const Registro = () => {
   return (
   <div className="container-fluid d-flex flex-column justify-content-center align-items-center fondo" style={{ minHeight: "100vh" }}>
       <LogoPrincipal/>
@@ -12,4 +12,4 @@ const Registrarse = () => {
   )
 }
 
-export default Registrarse
+export default Registro

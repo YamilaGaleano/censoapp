@@ -1,25 +1,28 @@
+import { useSelector } from "react-redux"
+import { CensosMontevideo } from "./CensosMontevideo"
+import CensosRestoPais from "./CensosRestoPais"
+import PersonasCensadas from "./PersonasCensadas"
+import { useEffect, useState } from "react"
 
 const CensadosTotales = () => {
+
+  const censos =useSelector(state=> state.personas)
+  const [totalCensos, setTotalCensos] = useState(0);
+
+
+  
+  useEffect(()=>{
+    setTotalCensos(censos.length);
+  },[censos])
+
+  console.log("censos", censos)
+  console.log("tot", censos.personas.length)
+  
   return (
     <div className="d-flex  mb-5 censadosTotales ">
-      <div className="card mx-2 flex-fill first">
-        <div className="card-body">
-          <h5 className="card-title">Personas censadas</h5>
-          <p className="card-text">100</p>
-        </div>
-      </div>
-      <div className="card mx-2 flex-fill second">
-        <div className="card-body">
-          <h5 className="card-title">Personas en Montevideo</h5>
-          <p className="card-text">60</p>
-        </div>
-      </div>
-      <div className="card mx-2 flex-fill third">
-        <div className="card-body">
-          <h5 className="card-title">Resto del Pais</h5>
-          <p className="card-text">40</p>
-        </div>
-      </div>
+      <PersonasCensadas totalCensos/>
+      <CensosMontevideo/>
+      <CensosRestoPais/>
     </div>
   )
 }
