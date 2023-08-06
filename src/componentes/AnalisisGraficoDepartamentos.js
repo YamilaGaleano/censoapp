@@ -53,8 +53,6 @@ const AnalisisGraficoDepartamentos = ({censos}) => {
         setCensoPorDpto(sumaCensosPorDpto);
     };
 
-    console.log('dptos',departamentosList)
-
     useEffect(() => {
         calcularSumaCensosPorDpto();
     }, [departamentosList, censos]);

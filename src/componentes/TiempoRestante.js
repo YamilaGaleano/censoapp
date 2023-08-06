@@ -29,7 +29,7 @@ const TiempoRestante = () => {
         }, 1000)
         return () => clearInterval(intervalo);
     }, [])
-    console.log("dias", dias)
+    
     return (
         <div className="card col-4 second ">
             <div className="card-body">
