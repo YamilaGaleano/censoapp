@@ -12,8 +12,6 @@ const ListadoPerContenedor = () => {
     const personasLista = useSelector(state => state.personas.personasUsuario);
     const [ocupacionSel, setOcupacionSel] = useState(1);
 
-    console.log("ocupaciones", ocupacionesList)
-
     const handleTabClick = (ocupacionId) => {
         setOcupacionSel(ocupacionId);
     };
@@ -47,16 +45,6 @@ const ListadoPerContenedor = () => {
                 }
             });
 
-        const newLogos = ocupacionesList.map(ocupacion => ({
-            id: ocupacion.id,
-            url: `https://censo.develotion.com/imgs/${ocupacion.id}.png`,
-            nombre: ocupacion.ocupacion
-        }));
-
-        console.log("nuevologo", newLogos)
-
-        setLogos(newLogos);
-        console.log("si?", logos)
     }, [nuevaPersona]);
 
 

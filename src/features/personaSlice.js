@@ -2,9 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     personas: [],
-    personasUsuario: []
-
-
+    personasUsuario: [],
+    personasTotal:0
 }
 
 export const personaSlice = createSlice({
@@ -17,10 +16,13 @@ export const personaSlice = createSlice({
         },
         listaPersonas:(state, action)=>{
             state.personasUsuario=action.payload
+        },
+        totalPersonas:(state, action)=>{
+            state.personasTotal=action.payload
         }
     }
 })
 
-export const { guardarPersonas, listaPersonas } = personaSlice.actions;
+export const { guardarPersonas, listaPersonas, totalPersonas } = personaSlice.actions;
 
 export default personaSlice.reducer;

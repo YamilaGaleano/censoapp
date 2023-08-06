@@ -1,11 +1,45 @@
+import { useDispatch,useSelector } from "react-redux";
+import { useEffect, useState } from "react"
+import { totalPersonas } from "../features/personaSlice"
+
 const Porcentaje = () => {
-  return (
-    <div className="card col-4 first ">
+  const dispatch = useDispatch();
+  const totalCensos = useSelector(state => state.personas.personasTotal);
+  const censosUsuario = useSelector(state => state.personas.personasUsuario);
+  const [porcentaje, setPorcentaje]= useState(0);
+
+  useEffect(() => {
+    fetch("https://censo.develotion.com/totalCensados.php", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'apiKey': localStorage.getItem("apikey"),
+            'iduser': localStorage.getItem("id")
+        },
+    })
+        .then(r => r.json())
+        .then(data => {
+            console.log("dataFetch",data);
+            if (data.codigo === 200) {
+                dispatch(totalPersonas(data.total));
+            } else {
+                console.log(data.mensaje);
+            }
+        });
+
+    setPorcentaje((censosUsuario.length *100)/totalCensos);
+
+}, [censosUsuario]);
+
+
+return (
+  <div className="card col-4 first ">
     <div className="card-body">
-        <h6 className="card-title">Porcentaje</h6>
+      <h6 className="card-title">Porcentaje de personas censadas</h6>
+      <p>%{porcentaje}</p>
     </div>
-</div>
-  )
+  </div>
+)
 }
 
 export default Porcentaje
