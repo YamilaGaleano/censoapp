@@ -1,18 +1,32 @@
-import ListarPersonas from "./ListarPersonas"
+import {useState } from "react";
 
-const ListarPersonasFiltro = () => {
+const ListarPersonasFiltro = ({ logos, handleTabClick, ocupacionSel }) => {
+
+  const [title, setTitle] = useState("");
+
+  const handleTitle =(logo) =>{
+    handleTabClick(logo.id);
+    setTitle(logo.nombre);
+  }
+  console.log("logos", logos)
+
   return (
-    <div className="form-group">
-    <label htmlFor="filtro">Ocupacion:</label>
-    <select className="form-control" id="filtro">
-      <option value="opcion1"> 1</option>
-      <option value="opcion2"> 2</option>
-      <option value="opcion3">3</option>
-    </select>
-    <ListarPersonas/>
-  </div>
-  
-  )
-}
+    <div className="card-header">
+      <h5 className="card-title mb-3">Listado de Personas</h5>
+      <ul className="nav nav-tabs card-header-tabs">
+        {logos.map(logo =>
+          <li className="nav-item">
+            <a
+              className={`nav-link ${ocupacionSel === logo.id ? 'active' : ''}`}
+              aria-current={ocupacionSel === logo.id ? 'true' : 'false'}
+              onClick={()=>handleTitle(logo)}
+            >
+            <img src={logo.url}/>
+            </a>
+          </li>)}
+      </ul>
+    </div>
+  );
+};
 
-export default ListarPersonasFiltro
+export default ListarPersonasFiltro;

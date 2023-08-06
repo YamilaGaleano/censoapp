@@ -32,7 +32,6 @@ const RegistroContenedor = () => {
         body: JSON.stringify(datos)
       }).then(r => r.json())
         .then(data => {
-          console.log("data", data)
           if (data.codigo === 200) {
             localStorage.setItem("apikey", data.apiKey);
             localStorage.setItem("id", data.id);

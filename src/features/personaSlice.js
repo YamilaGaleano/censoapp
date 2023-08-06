@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     personas: [],
+    personasUsuario: []
 
 
 }
@@ -15,7 +16,7 @@ export const personaSlice = createSlice({
             state.personas.push(action.payload)
         },
         listaPersonas:(state, action)=>{
-            state.personas=action.payload
+            state.personasUsuario=action.payload
         }
     }
 })
