@@ -39,18 +39,26 @@ export const options = {
     }
 };
 
-const AnalisisGraficoDepartamentos = ({censos}) => {
+const AnalisisGraficoDepartamentos = ({ censos }) => {
     const departamentosList = useSelector(state => state.departamentos.departamentos);
-    const [censoPorDpto, setCensoPorDpto] = useState({});
+    const [censoPorDpto, setCensoPorDpto] = useState([]);
+    const [deptosConCensos, setdeptosConCensos] = useState([]);
 
     const calcularSumaCensosPorDpto = () => {
         const sumaCensosPorDpto = [];
+        const deptosCensos = [];
         departamentosList.forEach(dpto => {
-            const censosFiltrados = censos.filter(censo => censo.departamento === dpto.id);
-            const sumaCensos = censosFiltrados.length;
-            sumaCensosPorDpto.push(sumaCensos);
+            const censosFiltrado = censos.filter(censo => censo.departamento === dpto.id);
+            const sumaCensos = censosFiltrado.length;
+            if (sumaCensos !== 0) {
+                deptosCensos.push(dpto);
+                sumaCensosPorDpto.push(sumaCensos);
+            }
+
         });
         setCensoPorDpto(sumaCensosPorDpto);
+        setdeptosConCensos(deptosCensos)
+
     };
 
     useEffect(() => {
@@ -59,19 +67,23 @@ const AnalisisGraficoDepartamentos = ({censos}) => {
     return (
         <div className="card mx-2 flex-fill">
             <div className="card-body">
-                <Bar options={options} data={{
-                    labels: departamentosList.map(dpto => dpto.nombre),
-                    datasets: [
-                        {
-                            label: 'Personas',
-                            data: censoPorDpto,
-                            backgroundColor: 'rgba(99, 148, 255, 0.5)',
-                        },
-                    ],
-                }} />
+                {deptosConCensos.length !== 0 ?
+                    <Bar options={options} data={{
+                        labels: deptosConCensos.map(dpto => dpto.nombre),
+                        datasets: [
+                            {
+                                label: 'Personas',
+                                data: censoPorDpto,
+                                backgroundColor: 'rgba(99, 148, 255, 0.5)',
+                            },
+                        ],
+                    }} />
+                    :
+                    <p className="text-center mt-5">No se encontraron departamentos con censos</p>
+                }
+
 
             </div>
-            {/* <div className="card-footer">Personas por departamento</div> */}
         </div>
     )
 }
