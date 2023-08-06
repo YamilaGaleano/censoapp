@@ -4,25 +4,10 @@
 }
 
 /* ListarPersonasFiltro.css */
-.slider-container {
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .slider {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .slider-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+
+  .logo-item {
+    background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -30,31 +15,13 @@
     transition: background-color 0.3s;
   }
   
-  .slider-item.active {
-    background-color: #007bff;
+  .logo-item.active {
+    background-color: #053568;
     color: #fff;
   }
   
-  .slider-item img {
+  .logo-item img {
     max-width: 100px;
     max-height: 100px;
-  }
-  
-  .slider-controls {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .slider-control {
-    cursor: pointer;
-    margin: 0 5px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-  }
-  
-  .slider-control:hover {
-    background-color: #f0f0f0;
   }
   
