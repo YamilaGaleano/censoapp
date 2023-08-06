@@ -45,7 +45,7 @@ const AgregarPersona = () => {
     return (
         <div className="card-body">
             <h5>Agregar persona</h5>
-            <p>Centista: {localStorage.getItem('user')}</p>
+            <p>Censista: {localStorage.getItem('user')}</p>
             <AgregarPersonaForm validarDatos={validarDatos}/>
             <ToastContainer 
             position="top-left"
