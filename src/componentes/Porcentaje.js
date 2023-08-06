@@ -27,16 +27,16 @@ const Porcentaje = () => {
             }
         });
 
-    setPorcentaje((censosUsuario.length *100)/totalCensos);
+    setPorcentaje(parseFloat(((censosUsuario.length *100)/totalCensos).toFixed(2)));
 
 }, [censosUsuario]);
 
 
 return (
   <div className="card col-4 first ">
-    <div className="card-body">
+    <div className="card-body text-center">
       <h6 className="card-title">Porcentaje de personas censadas</h6>
-      <p>%{porcentaje}</p>
+      <p className="card-text">%{porcentaje}</p>
     </div>
   </div>
 )

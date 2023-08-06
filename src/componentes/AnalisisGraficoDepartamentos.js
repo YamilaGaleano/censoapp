@@ -26,7 +26,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Personas por ocupacion',
+            text: 'Personas por Departamento',
         },
     }, scales: {
         x: {
