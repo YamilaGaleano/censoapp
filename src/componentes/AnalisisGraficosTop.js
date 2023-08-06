@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react"
 import AnalisisGraficosOcupacion from "./AnalisisGraficosOcupacion";
+import AnalisisGraficoDepartamentos from "./AnalisisGraficoDepartamentos";
 
 const AnalisisGraficosTop = () => {
   const censos = useSelector(state => state.personas.personasUsuario);
@@ -8,12 +9,7 @@ const AnalisisGraficosTop = () => {
 
   return (
     <div className="d-flex analisis-topSection">
-      <div className="card mx-2 flex-fill">
-        <div className="card-body">
-
-        </div>
-        <div className="card-footer">Personas por departamento</div>
-      </div>
+      <AnalisisGraficoDepartamentos censos={censos}/>
       <AnalisisGraficosOcupacion censos={censos} />
     </div>
   )
