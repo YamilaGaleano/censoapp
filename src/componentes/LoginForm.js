@@ -1,48 +1,22 @@
-import { useEffect, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-
-
-const LoginForm = () => {
-  const navigate = useNavigate();
+import {useRef, useState } from "react";
+const LoginForm = ({Login}) => {
   const user = useRef(null);
   const pass = useRef(null);
   const [errorUser, setErrorUser] = useState(true)
-  const [errorLogin, setErrorLogin] = useState(false)
-  // useEffect(() => {
-  //   if (user.current && pass.current) {
-  //     setErrorUser(user.current.value === '' || pass.current.value === '');
-  //  }
-  // }, [user.current.value]);
+  
   const cambioInput = () => {
     if (user.current && pass.current) {
       setErrorUser(user.current.value === '' || pass.current.value === '');
     }
   }
-  const ingresar = (e) => {
-    e.preventDefault();
-    const usu = { usuario: user.current.value, password: pass.current.value }
-    fetch(`https://censo.develotion.com/login.php`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(usu)
-    }).then(r => r.json()).then(data => {
-      if (data.codigo == 200) {
-        localStorage.setItem("apikey", data.apiKey);
-        localStorage.setItem("id", data.id);
-        navigate("/Dashboard")
-        console.log("Login exitoso");
-      } else {
-        console.log(data.mensaje);
-        setErrorLogin(true);
-      }
-    })
-
+  const ingresar=(e)=>{
+    if(!errorUser){
+      e.preventDefault();
+      const datos={usuario:user.current.value, password:pass.current.value}
+      Login(datos)
+    }
   }
-
   return (
-
     <form className="row g-3 align-items-center mb-5">
       <div className="col-12">
         <label htmlFor="usuLogin" className="form-label">Usuario</label>
@@ -54,11 +28,8 @@ const LoginForm = () => {
       </div>
       <div className="col-12">
         <button type="submit" className="btn btn-primary" onClick={ingresar} disabled={errorUser}>Iniciar sesión</button>
-        {errorLogin && <p className="mb-5 mt-5">Usuario y/o contraseña incorrectos</p>}
       </div>
     </form>
-
-
   )
 }
 

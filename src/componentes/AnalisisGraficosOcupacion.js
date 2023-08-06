@@ -45,19 +45,15 @@ const AnalisisGraficosOcupacion = ({ censos }) => {
     const [censoPorOcupacion, setCensoPorOcupacion] = useState({});
 
     const calcularSumaCensosPorOcupacion = () => {
-        const sumaCensosPorOcupacion = [];
-        ocupacionesList.forEach(ocupacion => {
+        const sumaCensosPorOcupacion = ocupacionesList.map(ocupacion => {
             const censosFiltrados = censos.filter(censo => censo.ocupacion === ocupacion.id);
-            const sumaCensos = censosFiltrados.length;
-            sumaCensosPorOcupacion.push(sumaCensos);
+            return censosFiltrados.length;
         });
         setCensoPorOcupacion(sumaCensosPorOcupacion);
     };
-
     useEffect(() => {
         calcularSumaCensosPorOcupacion();
     }, [ocupacionesList, censos]);
-
     return (
         <div className="card mx-2 flex-fill">
             <div className="card-body">

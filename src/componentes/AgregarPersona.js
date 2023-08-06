@@ -1,25 +1,23 @@
 import React from 'react'
-import {useState } from "react";
 import { useDispatch} from 'react-redux';
 import AgregarPersonaForm from './AgregarPersonaForm'
 import { guardarPersonas } from '../features/personaSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AgregarPersona = () => {
-    const [agregado, setAgregado] = useState(false);
-    const [errorPersona, setErrorPersona] = useState(false);
-    const [msj, setMsj] = useState("");
-    const [msj2, setMsj2] = useState("");
     const dispatch = useDispatch();
+
     const validarDatos = (datos) => {
         if (datos.nombre === "" || datos.departamento ===""|| datos.ciudad ==="Choose..."|| datos.ocupacion ==="Choose..."||datos.fechaNacimiento ==="") {
-          setErrorPersona(true);
-          setAgregado(false);
-          setMsj("Debe completar todos los campos");;
+          toast.error("Debe completar todos los campos");
+          return false;
         } 
         else{
             altaPersona(datos);
+            return true;
         }
       }
+      
     const altaPersona=(datos)=>{
        
         fetch(`https://censo.develotion.com/personas.php`, {
@@ -35,27 +33,25 @@ const AgregarPersona = () => {
                 if (data.codigo == 200) {
                     datos.idCenso=data.idCenso;
                     dispatch(guardarPersonas(datos))
-                    setAgregado(true);
-                    setMsj("Se agrego correctamente");
+                    toast.success('Se agrego correctamente');
                 }
                 else {
-                    console.log(data.mensaje);
-                    setErrorPersona(true);
-                    setAgregado(false);
-                    if (msj === "") setMsj(data.mensaje);
+                    toast.error(data.mensaje);
+                    
                 }
-            })
-        
+            })       
     }
+
     return (
         <div className="card-body">
             <h5>Agregar persona</h5>
-            <p>Censista: Yamila Galeano</p>
-            
+            <p>Centista: {localStorage.getItem('user')}</p>
             <AgregarPersonaForm validarDatos={validarDatos}/>
-            {errorPersona && <p >{msj}</p>}
-            {agregado && <p >{msj2}</p>}
-
+            <ToastContainer 
+            position="top-left"
+            theme="colored"
+            autoClose={1500}
+            />
         </div>
     )
 }
