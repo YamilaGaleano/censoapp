@@ -26,7 +26,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Personas por ocupacion',
+            text: 'Personas por Departamento',
         },
     }, scales: {
         x: {
@@ -39,39 +39,41 @@ export const options = {
     }
 };
 
+const AnalisisGraficoDepartamentos = ({censos}) => {
+    const departamentosList = useSelector(state => state.departamentos.departamentos);
+    const [censoPorDpto, setCensoPorDpto] = useState({});
 
-const AnalisisGraficosOcupacion = ({ censos }) => {
-    const ocupacionesList = useSelector(state => state.ocupaciones.ocupaciones);
-    const [censoPorOcupacion, setCensoPorOcupacion] = useState({});
-
-    const calcularSumaCensosPorOcupacion = () => {
-        const sumaCensosPorOcupacion = ocupacionesList.map(ocupacion => {
-            const censosFiltrados = censos.filter(censo => censo.ocupacion === ocupacion.id);
-            return censosFiltrados.length;
+    const calcularSumaCensosPorDpto = () => {
+        const sumaCensosPorDpto = [];
+        departamentosList.forEach(dpto => {
+            const censosFiltrados = censos.filter(censo => censo.departamento === dpto.id);
+            const sumaCensos = censosFiltrados.length;
+            sumaCensosPorDpto.push(sumaCensos);
         });
-        setCensoPorOcupacion(sumaCensosPorOcupacion);
+        setCensoPorDpto(sumaCensosPorDpto);
     };
+
     useEffect(() => {
-        calcularSumaCensosPorOcupacion();
-    }, [ocupacionesList, censos]);
+        calcularSumaCensosPorDpto();
+    }, [departamentosList, censos]);
     return (
         <div className="card mx-2 flex-fill">
             <div className="card-body">
                 <Bar options={options} data={{
-                    labels: ocupacionesList.map(ocupacion => ocupacion.ocupacion),
+                    labels: departamentosList.map(dpto => dpto.nombre),
                     datasets: [
                         {
                             label: 'Personas',
-                            data: censoPorOcupacion,
-                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            data: censoPorDpto,
+                            backgroundColor: 'rgba(99, 148, 255, 0.5)',
                         },
                     ],
                 }} />
 
             </div>
-            {/* <div className="card-footer">Personas por ocupacion</div> */}
+            {/* <div className="card-footer">Personas por departamento</div> */}
         </div>
     )
 }
 
-export default AnalisisGraficosOcupacion
+export default AnalisisGraficoDepartamentos

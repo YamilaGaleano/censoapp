@@ -12,18 +12,18 @@ const ListarPersonasFiltro = ({ logos, handleTabClick, ocupacionSel }) => {
 
   return (
     <div className="card-header">
-      <h5 className="card-title mb-3">Listado de Personas</h5>
-      <div className="slider-container">
-        <div className="slider">
+      <h5 className="card-title mb-3">{title!==""? title : "Listado de Personas"}</h5>
+      <div className="row">
+        <div className="col-12 d-flex justify-content-between">
           {logos.map(logo =>
-            <a
+            <span
               key={logo.id}
-              className={`nav-link slider-item ${ocupacionSel === logo.id ? 'active' : ''}`}
+              className={`nav-link logo-item ${ocupacionSel === logo.id ? 'active' : ''}`}
               aria-current={ocupacionSel === logo.id ? 'true' : 'false'}
               onClick={() => handleTitle(logo)}
             >
               <img src={logo.url} alt={logo.nombre} />
-            </a>
+            </span>
           )}
         </div>
       </div>
@@ -32,21 +32,3 @@ const ListarPersonasFiltro = ({ logos, handleTabClick, ocupacionSel }) => {
 };
 
 export default ListarPersonasFiltro;
-
-
-
-    // <div className="card-header">
-    //   <h5 className="card-title mb-3">Listado de Personas</h5>
-    //   <ul className="nav nav-tabs card-header-tabs ">
-    //     {logos.map(logo =>
-    //       <li className="nav-item">
-    //         <a
-    //           className={`nav-link ${ocupacionSel === logo.id ? 'active' : ''}`}
-    //           aria-current={ocupacionSel === logo.id ? 'true' : 'false'}
-    //           onClick={()=>handleTitle(logo)}
-    //         >
-    //         <img src={logo.url}/>
-    //         </a>
-    //       </li>)}
-    //   </ul>
-    // </div>

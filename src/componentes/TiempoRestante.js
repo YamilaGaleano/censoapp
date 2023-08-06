@@ -29,22 +29,22 @@ const TiempoRestante = () => {
         }, 1000)
         return () => clearInterval(intervalo);
     }, [])
-    console.log("dias", dias)
+    
     return (
         <div className="card col-4 second ">
             <div className="card-body">
-                <h6 className="card-title">Tiempo restante</h6>
+                <h6 className="card-title text-center">Tiempo restante</h6>
                 <div className="row text-center reloj">
                     <div className="col-3 reloj-item d-flex flex-column">
-                        <span className="reloj-valor">{dias}</span>
+                        <span className="reloj-valor ">{dias}</span>
                         <span className="reloj-nombre">Días</span>
                     </div>
                     <div className="col-3 reloj-item d-flex flex-column">
-                        <span className="reloj-valor">{horas}</span>
+                        <span className="reloj-valor ">{horas}</span>
                         <span className="reloj-nombre">Hs</span>
                     </div>
                     <div className="col-3 reloj-item d-flex flex-column">
-                        <span className="reloj-valor">{minutos}</span>
+                        <span className="reloj-valor  ">{minutos}</span>
                         <span className="reloj-nombre">Min</span>
                     </div>
                     <div className="col-3 reloj-item d-flex flex-column">

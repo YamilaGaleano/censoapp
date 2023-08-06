@@ -21,7 +21,7 @@ const ListadoPerContenedor = () => {
         const newLogos = ocupacionesList.map(ocupacion => ({
             id: ocupacion.id,
             url: `https://censo.develotion.com/imgs/${ocupacion.id}.png`,
-            nombre: ocupacion.nombre
+            nombre: ocupacion.ocupacion
         }));
 
         setLogos(newLogos);
