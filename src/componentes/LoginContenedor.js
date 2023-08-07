@@ -16,7 +16,6 @@ const LoginContenedor = () => {
         localStorage.setItem("apikey", data.apiKey);
         localStorage.setItem("id", data.id);
         localStorage.setItem("user", datos.usuario);
-        console.log(data,'loginnnn')
         navigate("/Dashboard")
       } else {
         setErrorLogin(true);

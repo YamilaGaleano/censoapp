@@ -11,7 +11,6 @@ export const personaSlice = createSlice({
     initialState,
     reducers: {
         guardarPersonas: (state, action) => {
-            //cambie el state.personas=action.payload
             state.personas.push(action.payload)
         },
         listaPersonas:(state, action)=>{
@@ -19,10 +18,13 @@ export const personaSlice = createSlice({
         },
         totalPersonas:(state, action)=>{
             state.personasTotal=action.payload
+        },
+        eliminarPersona:(state,action)=>{
+            state.personas = state.personas.filter(persona => persona.id !== action.payload)
         }
     }
 })
 
-export const { guardarPersonas, listaPersonas, totalPersonas } = personaSlice.actions;
+export const { guardarPersonas, listaPersonas, totalPersonas,eliminarPersona } = personaSlice.actions;
 
 export default personaSlice.reducer;
