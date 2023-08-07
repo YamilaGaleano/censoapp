@@ -43,7 +43,7 @@ const RegistroContenedor = () => {
 
   return (
     <div className="border p-4 rounded-3 text-center login-registro">
-      <h1 className="mb-5">Registro</h1>
+      <h2 className="mb-5">Registro</h2>
       <RegistroForm altaRegistro={altaRegistro} />
       <ToastContainer 
             position="top-right"

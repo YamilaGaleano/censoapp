@@ -1,9 +1,20 @@
 .fondo {
-    background-color: coral ;
+    background-image: url('../img/fondo.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fondo h1{
+    font-size: 80px;
 }
 
 .login-registro {
-    background-color: antiquewhite;
+    background-color: #4768A2;
+    color: black;
+}
+
+.login-registro h2,label{
     color: black;
 }
 

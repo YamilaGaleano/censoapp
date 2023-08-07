@@ -24,7 +24,7 @@ const LoginContenedor = () => {
   }
   return (
     <div className="border p-4 rounded-3 text-center login-registro">
-    <h1 className="mb-5">Login</h1>
+    <h2 className="mb-5">Login</h2>
     <LoginForm Login={Login}/>
     {errorLogin && <p >Usuario y/o contraseña incorrectos</p>}
     <a href="/registro">Registrarse</a>
