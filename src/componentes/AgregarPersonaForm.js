@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+
 import { guardarDepartamentos } from "../features/departamentoSlice";
 import { guardarOcupaciones } from "../features/ocupacionSlice";
 
@@ -8,13 +9,15 @@ const AgregarPersonaForm = ({ validarDatos }) => {
     const ocu = useSelector(state => state.ocupaciones.ocupaciones)
     const [ocupacionEdad, setocupacionEdad] = useState([]);
     const [ciudadesData, setCiudadesData] = useState([]);
+    const [formularioEnviado, setFormularioEnviado] = useState(false);
     const [selectDep, setSelectDep] = useState('');
     const [selectEdad, setSelectEdad] = useState('');
     const dispatch = useDispatch();
-
     const nombPersonaRef = useRef(null);
     const ciudPersonaRef = useRef(null);
     const ocupacionPersonaRef = useRef(null);
+    const fechaNacRef = useRef(null);
+    const depRef = useRef(null);
 
     useEffect(() => {
         fetch(`https://censo.develotion.com/departamentos.php`, {
@@ -65,10 +68,24 @@ const AgregarPersonaForm = ({ validarDatos }) => {
             ocupacion: ocupacionPersonaRef.current.value
         }
         validarDatos(persona);
-    }
+        (validarDatos)?setFormularioEnviado(true):setFormularioEnviado(false);
 
+    }
+    //limpiar formulario
+    useEffect(() => {
+        if (formularioEnviado) {
+            nombPersonaRef.current.value = '';
+            ciudPersonaRef.current.value = 'Choose...';
+            ocupacionPersonaRef.current.value = 'Choose...';
+            fechaNacRef.current.value='';
+            depRef.current.value='';
+            setFormularioEnviado(false);
+        }
+    }, [formularioEnviado]);
+    
     const CambioEdad = (e) => {
         setSelectEdad(e.target.value)
+        console.log(setSelectEdad(e.target.value),'facuuuuu')
         const fechaActual = new Date();
         const fechaIngresada = new Date(e.target.value);
 
@@ -100,7 +117,7 @@ const AgregarPersonaForm = ({ validarDatos }) => {
             </div>
             <div className="form-group col-6">
                 <label htmlFor='departamento'>Departamento</label>
-                <select id='departamento' className="form-control" onChange={CambioSelectDep}>
+                <select id='departamento' className="form-control" ref={depRef} onChange={CambioSelectDep}>
                     <option selected>Choose...</option>
                     {dep.map((option) => (
                         <option key={option.id} value={option.id}>
@@ -122,7 +139,7 @@ const AgregarPersonaForm = ({ validarDatos }) => {
             </div>
             <div className="form-group col-6">
                 <label htmlFor='fechaNacimiento'>Fecha de Nacimiento:</label>
-                <input type="date" className="form-control" id='fechaNacimiento' name="fechaNacimiento" onChange={CambioEdad} />
+                <input type="date" className="form-control" id='fechaNacimiento' name="fechaNacimiento" ref={fechaNacRef} onChange={CambioEdad} />
             </div>
             <div className="form-group col-6">
                 <label htmlFor='ocupacion' >Ocupacion</label>
