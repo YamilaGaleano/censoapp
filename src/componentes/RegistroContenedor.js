@@ -8,11 +8,18 @@ const RegistroContenedor = () => {
 
   const validarDatos = (datos) => {
 
-    if (datos.usuario === "" || datos.password ==="") {
+    if (datos.usuario === "" || datos.password === "") {
       setErrorRegistro(true);
-      if (datos.usuario === "") toast.error("Debe ingresar un usuario");
-      else toast.error("Debe ingresar una contraseña");
-    } 
+      (datos.usuario === "")?toast.error("Debe ingresar un usuario"):toast.error("Debe ingresar una contraseña");
+     } else {
+      if (datos.usuario.length < 4) {
+        setErrorRegistro(true);
+        toast.error("El usuario debe tener al menos 4 caracteres");
+      } else if (datos.password.length < 6) {
+        setErrorRegistro(true);
+        toast.error("La contraseña debe tener al menos 6 caracteres");
+    }
+  }
   }
 
   const altaRegistro = (datos) => {
