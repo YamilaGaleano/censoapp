@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/global.css'
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import NoEncontrado from './componentes/NoEncontrado';
 function App() {
 
   return (
@@ -15,9 +16,10 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route path="/"  element={<Login/>} />
+      <Route path="/index.html"  element={<Login/>} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="*" element={<Login/>} />
+        <Route path="*" element={<NoEncontrado/>} />
       </Routes>
 
     </BrowserRouter>
