@@ -5,8 +5,6 @@ import AnalisisGraficoDepartamentos from "./AnalisisGraficoDepartamentos";
 
 const AnalisisGraficosTop = () => {
   const censos = useSelector(state => state.personas.personasUsuario);
-
-
   return (
     <div className="d-flex analisis-topSection">
       <AnalisisGraficoDepartamentos censos={censos}/>

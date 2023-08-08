@@ -18,8 +18,7 @@ const AgregarPersona = () => {
         }
       }
       
-    const altaPersona=(datos)=>{
-       
+    const altaPersona=(datos)=>{      
         fetch(`https://censo.develotion.com/personas.php`, {
             method: 'POST',
             headers: {
@@ -30,7 +29,7 @@ const AgregarPersona = () => {
             body: JSON.stringify(datos)
         }).then(r => r.json())
             .then(data => {
-                if (data.codigo == 200) {
+                if (data.codigo === 200) {
                     datos.idCenso=data.idCenso;
                     dispatch(guardarPersonas(datos))
                     toast.success('Se agrego correctamente');

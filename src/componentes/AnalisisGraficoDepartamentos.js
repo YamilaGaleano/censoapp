@@ -38,7 +38,6 @@ export const options = {
         },
     }
 };
-
 const AnalisisGraficoDepartamentos = ({ censos }) => {
     const departamentosList = useSelector(state => state.departamentos.departamentos);
     const [censoPorDpto, setCensoPorDpto] = useState([]);

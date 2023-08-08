@@ -26,5 +26,4 @@ const RegistroForm = ({altaRegistro}) => {
         </form>
     )
 }
-
 export default RegistroForm

@@ -20,7 +20,6 @@ const CensadosTotales = () => {
 
   },[censos])
 
-  
   return (
     <div className="d-flex  mb-5 censadosTotales ">
       <PersonasCensadas totalCensos={totalCensos}/>

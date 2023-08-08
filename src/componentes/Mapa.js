@@ -11,7 +11,6 @@ L.Icon.Default.mergeOptions({
     iconUrl: require('leaflet/dist/images/marker-icon.png'),
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
-
 const Mapa = () => {
     const departamentos = useSelector(state => state.departamentos.departamentos);
     const censos = useSelector(state => state.personas.personasUsuario);
@@ -22,13 +21,13 @@ const Mapa = () => {
     
       const calcularSumaCensosPorDepartamento = () => {
         const censosPorDepartamento = {};     
-        censos.map((persona) => {    
+        censos.forEach(persona => {
           if (censosPorDepartamento[persona.departamento] !== undefined) {
             censosPorDepartamento[persona.departamento] = censosPorDepartamento[persona.departamento] + 1;
           } else {
             censosPorDepartamento[persona.departamento] = 1;
           }
-        });    
+        });          
         setcensoPorDep(censosPorDepartamento);
       };
     return (

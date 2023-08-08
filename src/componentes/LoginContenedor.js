@@ -12,7 +12,7 @@ const LoginContenedor = () => {
       },
       body: JSON.stringify(datos)
     }).then(r => r.json()).then(data => {
-      if (data.codigo == 200) {
+      if (data.codigo === 200) {
         localStorage.setItem("apikey", data.apiKey);
         localStorage.setItem("id", data.id);
         localStorage.setItem("user", datos.usuario);
@@ -28,7 +28,6 @@ const LoginContenedor = () => {
     <LoginForm Login={Login}/>
     {errorLogin && <p >Usuario y/o contraseña incorrectos</p>}
     <a href="/registro">Registrarse</a>
-
   </div>
   )
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 const TiempoRestante = () => {
-
     const [dias, setDias] = useState(0);
     const [horas, setHoras] = useState(0);
     const [minutos, setMinutos] = useState(0);

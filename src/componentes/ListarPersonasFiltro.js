@@ -2,14 +2,10 @@ import { useState } from "react";
 
 const ListarPersonasFiltro = ({ logos, handleTabClick, ocupacionSel }) => {
   const [title, setTitle] = useState("");
-  
   const handleTitle = (logo) => {
     handleTabClick(logo.id);
     setTitle(logo.nombre);
   }
-  
-  console.log("logos", logos);
-
   return (
     <div className="card-header">
       <h5 className="card-title mb-3">{title!==""? title : "Listado de Personas"}</h5>

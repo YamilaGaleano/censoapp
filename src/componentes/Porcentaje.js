@@ -2,6 +2,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { useEffect, useState } from "react"
 import { totalPersonas } from "../features/personaSlice"
 
+
 const Porcentaje = () => {
   const dispatch = useDispatch();
   const totalCensos = useSelector(state => state.personas.personasTotal);
@@ -19,18 +20,12 @@ const Porcentaje = () => {
     })
         .then(r => r.json())
         .then(data => {
-            console.log("dataFetch",data);
             if (data.codigo === 200) {
                 dispatch(totalPersonas(data.total));
-            } else {
-                console.log(data.mensaje);
-            }
+            } 
         });
-
     setPorcentaje(parseFloat(((censosUsuario.length *100)/totalCensos).toFixed(2)));
-
 }, [censosUsuario]);
-
 
 return (
   <div className="card col-4 first ">

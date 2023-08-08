@@ -67,9 +67,7 @@ const AnalisisGraficosOcupacion = ({ censos }) => {
                         },
                     ],
                 }} />
-
             </div>
-            {/* <div className="card-footer">Personas por ocupacion</div> */}
         </div>
     )
 }

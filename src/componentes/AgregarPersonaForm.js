@@ -27,9 +27,7 @@ const AgregarPersonaForm = ({ validarDatos }) => {
                 'apiKey': localStorage.getItem("apikey"), 'iduser': localStorage.getItem("id")
             },
         }).then(r => r.json()).then(data => {
-            (data.codigo == 200) ? dispatch(guardarDepartamentos(data.departamentos)) : console.log(data.mensaje);
-        }).catch(function (data) {
-            console.log(data.mensaje)
+           if (data.codigo === 200) {dispatch(guardarDepartamentos(data.departamentos)) };
         })
         fetch(`https://censo.develotion.com/ocupaciones.php`, {
             method: 'GET',
@@ -39,7 +37,7 @@ const AgregarPersonaForm = ({ validarDatos }) => {
                 'iduser': localStorage.getItem("id")
             },
         }).then(r => r.json()).then(data => {
-            (data.codigo == 200) ? dispatch(guardarOcupaciones(data.ocupaciones)) : console.log(data.mensaje);
+            if(data.codigo === 200) dispatch(guardarOcupaciones(data.ocupaciones));
         })
 
     }, [])
@@ -53,7 +51,7 @@ const AgregarPersonaForm = ({ validarDatos }) => {
                 'iduser': localStorage.getItem("id")
             },
         }).then(r => r.json()).then(data => {
-            (data.codigo == 200) ? setCiudadesData(data.ciudades) : console.log(data.mensaje);
+            if(data.codigo === 200) setCiudadesData(data.ciudades);
         })
     }, [selectDep])
 
@@ -108,7 +106,6 @@ const AgregarPersonaForm = ({ validarDatos }) => {
     const CambioSelectDep = (e) => {
         setSelectDep(e.target.value);
     };
-
     return (
         <form className="row">
             <div className="form-group col-12">
@@ -117,8 +114,8 @@ const AgregarPersonaForm = ({ validarDatos }) => {
             </div>
             <div className="form-group col-6">
                 <label htmlFor='departamento'>Departamento</label>
-                <select id='departamento' className="form-control" ref={depRef} onChange={CambioSelectDep}>
-                    <option selected>Choose...</option>
+                <select id='departamento' defaultValue={'Choose...'} className="form-control" ref={depRef} onChange={CambioSelectDep}>
+                    <option value={'Choose...'}>Choose...</option>
                     {dep.map((option) => (
                         <option key={option.id} value={option.id}>
                             {option.nombre} </option>))}
@@ -126,8 +123,8 @@ const AgregarPersonaForm = ({ validarDatos }) => {
             </div>
             <div className="form-group col-6">
                 <label htmlFor='ciudad'>Ciudad</label>
-                <select id='ciudad' className="form-control" ref={ciudPersonaRef} >
-                    <option selected>Choose...</option>
+                <select defaultValue={'Choose...'} id='ciudad' className="form-control" ref={ciudPersonaRef} >
+                    <option value={'Choose...'}>Choose...</option>
                     {
                         ciudadesData.map((option) => (
                             <option key={option.id} value={option.id}>
@@ -143,8 +140,8 @@ const AgregarPersonaForm = ({ validarDatos }) => {
             </div>
             <div className="form-group col-6">
                 <label htmlFor='ocupacion' >Ocupacion</label>
-                <select id='ocupacion' className="form-control" ref={ocupacionPersonaRef} >
-                    <option selected>Choose...</option>
+                <select id='ocupacion' defaultValue={'Choose...'} className="form-control" ref={ocupacionPersonaRef} >
+                    <option value={'Choose...'}>Choose...</option>
                     {ocupacionEdad.map((option) => (
                         <option key={option.id} value={option.id}>
                             {option.ocupacion} </option>))}

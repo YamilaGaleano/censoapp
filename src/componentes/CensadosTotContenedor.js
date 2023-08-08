@@ -7,5 +7,4 @@ const CensadosTotContenedor = () => {
         </div>
     )
 }
-
 export default CensadosTotContenedor

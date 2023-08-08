@@ -40,14 +40,10 @@ const ListadoPerContenedor = () => {
             .then(data => {
                 if (data.codigo === 200) {
                     dispatch(listaPersonas(data.personas));
-                } else {
-                    console.log(data.mensaje);
-                }
+                } 
             });
 
     }, [nuevaPersona]);
-
-
     return (
         <div className="card mt-5 listadoPersonas">
             <ListarPersonasFiltro logos={logos} handleTabClick={handleTabClick} ocupacionSel={ocupacionSel} />

@@ -11,7 +11,7 @@ const ListarPersonas = ({ personasLista, ocupacionSel }) => {
         'iduser': localStorage.getItem("id")
       },
     }).then(r => r.json()).then(data => {
-      if (data.codigo == 200) {
+      if (data.codigo === 200) {
           dispatch(eliminarPersona(id));
       } 
     })
@@ -30,7 +30,6 @@ const ListarPersonas = ({ personasLista, ocupacionSel }) => {
                 </button> </div></li>)}
     </ul>
 </div>
-
 
   )
 }

@@ -37,17 +37,16 @@ const RegistroContenedor = () => {
           if (data.codigo === 200) {
             localStorage.setItem("apikey", data.apiKey);
             localStorage.setItem("id", data.id);
+            localStorage.setItem("user", datos.usuario);
             navigate("/Dashboard")
            
           } else {
-            console.log(data.mensaje);
             setErrorRegistro(true);
             toast.error(data.mensaje);
           }
         })
     }
   }
-
   return (
     <div className="border p-4 rounded-3 text-center login-registro">
       <h2 className="mb-5">Registro</h2>
