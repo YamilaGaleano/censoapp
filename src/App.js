@@ -21,7 +21,6 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="*" element={<NoEncontrado/>} />
       </Routes>
-
     </BrowserRouter>
     </Provider>
   );
