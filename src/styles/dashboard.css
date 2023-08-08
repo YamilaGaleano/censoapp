@@ -96,3 +96,28 @@
     font-size: 20px;
     font-weight: bolder;
 }
+
+.main {
+    margin-left: 100px;
+    padding-right: 200px;
+  }
+  
+  
+  .logo-item {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logo-item.active {
+    background-color: #053568;
+    color: #fff;
+  }
+  
+  .logo-item img {
+    max-width: 100px;
+    max-height: 100px;
+  }
